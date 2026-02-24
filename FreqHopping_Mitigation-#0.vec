@@ -1,0 +1,120 @@
+version 3
+run FreqHopping_Mitigation-0-20260224-14:35:22-9138
+attr configname FreqHopping_Mitigation
+attr datetime 20260224-14:35:22
+attr datetimef 20260224-143522
+attr experiment FreqHopping_Mitigation
+attr inifile omnetpp.ini
+attr iterationvars ""
+attr iterationvarsd ""
+attr iterationvarsf ""
+attr measurement ""
+attr network helloNetwork
+attr processid 9138
+attr repetition 0
+attr replication #0
+attr resultdir results
+attr runnumber 0
+attr seedset 0
+config image-path ../../../../veins-5.3.1/veins-veins-5.3.1/images
+config extends Jamming
+config *.**.nic.mac1609_4.useServiceChannel true
+config *.node[*].appl.dataOnSch true
+config *.rsu[*].appl.dataOnSch true
+config *.jammer[0].nic.mac1609_4.useServiceChannel false
+config *.jammer[0].appl.dataOnSch false
+config *.node[*].veinsmobility.x 0
+config *.node[*].veinsmobility.y 0
+config *.node[*].veinsmobility.z 0
+config *.node[*].veinsmobility.setHostSpeed false
+config *.node[*0].veinsmobility.accidentCount 0
+config *.node[*0].veinsmobility.accidentStart 73s
+config *.node[*0].veinsmobility.accidentDuration 50s
+config extends WithBeaconing
+config *.jammer[0].mobility.x 1500
+config *.jammer[0].mobility.y 1500
+config *.jammer[0].mobility.z 3
+config *.jammer[0].applType "\"TraCIDemoRSU11p\""
+config *.jammer[0].appl.headerLength "80 bit"
+config *.jammer[0].appl.sendBeacons true
+config *.jammer[0].appl.beaconInterval 0.1s
+config *.jammer[0].appl.beaconUserPriority 7
+config *.jammer[0].appl.dataUserPriority 5
+config *.jammer[0].appl.dataOnSch false
+config *.jammer[0].nic.mac1609_4.txPower 200mW
+config *.jammer[0].nic.phy80211p.antennaOffsetZ "0 m"
+config *.rsu[*].appl.sendBeacons true
+config *.node[*].appl.sendBeacons true
+config cmdenv-express-mode true
+config cmdenv-autoflush true
+config cmdenv-status-frequency 1s
+config **.cmdenv-log-level info
+config image-path ../../images
+config network helloNetwork
+config debug-on-errors true
+config print-undisposed true
+config sim-time-limit 200s
+config **.scalar-recording true
+config **.vector-recording true
+config *.playgroundSizeX 2500m
+config *.playgroundSizeY 2500m
+config *.playgroundSizeZ 50m
+config *.annotations.draw true
+config *.obstacles.debug false
+config *.manager.updateInterval 1s
+config *.manager.host "\"localhost\""
+config *.manager.port 9999
+config *.manager.autoShutdown true
+config *.manager.launchConfig "xmldoc(\"helloworld.launchd.xml\")"
+config *.tls[*].mobility.x 0
+config *.tls[*].mobility.y 0
+config *.tls[*].mobility.z 3
+config *.tls[*].applType "\"org.car2x.veins.modules.application.traci.TraCIDemoTrafficLightApp\""
+config *.tls[*].logicType "\"org.car2x.veins.modules.world.traci.trafficLight.logics.TraCITrafficLightSimpleLogic\""
+config *.rsu[0].mobility.x 2000
+config *.rsu[0].mobility.y 2000
+config *.rsu[0].mobility.z 3
+config *.rsu[*].applType "\"TraCIDemoRSU11p\""
+config *.rsu[*].appl.headerLength "80 bit"
+config *.rsu[*].appl.sendBeacons false
+config *.rsu[*].appl.dataOnSch false
+config *.rsu[*].appl.beaconInterval 1s
+config *.rsu[*].appl.beaconUserPriority 7
+config *.rsu[*].appl.dataUserPriority 5
+config *.rsu[*].nic.phy80211p.antennaOffsetZ "0 m"
+config *.connectionManager.sendDirect true
+config *.connectionManager.maxInterfDist 2600m
+config *.connectionManager.drawMaxIntfDist false
+config *.**.nic.mac1609_4.useServiceChannel false
+config *.**.nic.mac1609_4.txPower 20mW
+config *.**.nic.mac1609_4.bitrate 6Mbps
+config *.**.nic.phy80211p.minPowerLevel -110dBm
+config *.**.nic.phy80211p.useNoiseFloor true
+config *.**.nic.phy80211p.noiseFloor -98dBm
+config *.**.nic.phy80211p.decider "xmldoc(\"config.xml\")"
+config *.**.nic.phy80211p.analogueModels "xmldoc(\"config.xml\")"
+config *.**.nic.phy80211p.usePropagationDelay true
+config *.**.nic.phy80211p.antenna "xmldoc(\"antenna.xml\", \"/root/Antenna[@id='monopole']\")"
+config *.node[*].nic.phy80211p.antennaOffsetY "0 m"
+config *.node[*].nic.phy80211p.antennaOffsetZ "1.895 m"
+config *.node[*].applType "\"MyVeinsApp\""
+config *.node[*].appl.headerLength "80 bit"
+config *.node[*].appl.sendBeacons false
+config *.node[*].appl.dataOnSch false
+config *.node[*].appl.beaconInterval 1s
+
+vector 0 helloNetwork.rsu[0].nic.phy80211p RadioState ETV
+vector 1 helloNetwork.rsu[0].nic.phy80211p RadioChannel ETV
+vector 2 helloNetwork.jammer[0].nic.phy80211p RadioState ETV
+vector 3 helloNetwork.jammer[0].nic.phy80211p RadioChannel ETV
+vector 4 helloNetwork.node[0].nic.phy80211p RadioState ETV
+vector 5 helloNetwork.node[0].nic.phy80211p RadioChannel ETV
+vector 6 helloNetwork.manager posx ETV
+vector 7 helloNetwork.manager posy ETV
+vector 8 helloNetwork.manager speed ETV
+6	189	1	30.1
+6	477	2	30.9
+7	189	1	126.65
+7	477	2	126.65
+8	477	2	0.8
+

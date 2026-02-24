@@ -1,0 +1,572 @@
+version 3
+run Jamming-0-20260224-12:30:15-6871
+attr configname Jamming
+attr datetime 20260224-12:30:15
+attr datetimef 20260224-123015
+attr experiment Jamming
+attr inifile omnetpp.ini
+attr iterationvars ""
+attr iterationvarsd ""
+attr iterationvarsf ""
+attr measurement ""
+attr network helloNetwork
+attr processid 6871
+attr repetition 0
+attr replication #0
+attr resultdir results
+attr runnumber 0
+attr seedset 0
+config image-path ../../../../veins-5.3.1/veins-veins-5.3.1/images
+config extends WithBeaconing
+config *.jammer[0].mobility.x 1500
+config *.jammer[0].mobility.y 1500
+config *.jammer[0].mobility.z 3
+config *.jammer[0].applType "\"TraCIDemoRSU11p\""
+config *.jammer[0].appl.headerLength "80 bit"
+config *.jammer[0].appl.sendBeacons true
+config *.jammer[0].appl.beaconInterval 0.1s
+config *.jammer[0].appl.beaconUserPriority 7
+config *.jammer[0].appl.dataUserPriority 5
+config *.jammer[0].appl.dataOnSch false
+config *.jammer[0].nic.mac1609_4.txPower 200mW
+config *.jammer[0].nic.phy80211p.antennaOffsetZ "0 m"
+config *.node[*].veinsmobility.x 0
+config *.node[*].veinsmobility.y 0
+config *.node[*].veinsmobility.z 0
+config *.node[*].veinsmobility.setHostSpeed false
+config *.node[*0].veinsmobility.accidentCount 0
+config *.node[*0].veinsmobility.accidentStart 73s
+config *.node[*0].veinsmobility.accidentDuration 50s
+config *.rsu[*].appl.sendBeacons true
+config *.node[*].appl.sendBeacons true
+config cmdenv-express-mode true
+config cmdenv-autoflush true
+config cmdenv-status-frequency 1s
+config **.cmdenv-log-level info
+config image-path ../../images
+config network helloNetwork
+config debug-on-errors true
+config print-undisposed true
+config sim-time-limit 200s
+config **.scalar-recording true
+config **.vector-recording true
+config *.playgroundSizeX 2500m
+config *.playgroundSizeY 2500m
+config *.playgroundSizeZ 50m
+config *.annotations.draw true
+config *.obstacles.debug false
+config *.manager.updateInterval 1s
+config *.manager.host "\"localhost\""
+config *.manager.port 9999
+config *.manager.autoShutdown true
+config *.manager.launchConfig "xmldoc(\"helloworld.launchd.xml\")"
+config *.tls[*].mobility.x 0
+config *.tls[*].mobility.y 0
+config *.tls[*].mobility.z 3
+config *.tls[*].applType "\"org.car2x.veins.modules.application.traci.TraCIDemoTrafficLightApp\""
+config *.tls[*].logicType "\"org.car2x.veins.modules.world.traci.trafficLight.logics.TraCITrafficLightSimpleLogic\""
+config *.rsu[0].mobility.x 2000
+config *.rsu[0].mobility.y 2000
+config *.rsu[0].mobility.z 3
+config *.rsu[*].applType "\"TraCIDemoRSU11p\""
+config *.rsu[*].appl.headerLength "80 bit"
+config *.rsu[*].appl.sendBeacons false
+config *.rsu[*].appl.dataOnSch false
+config *.rsu[*].appl.beaconInterval 1s
+config *.rsu[*].appl.beaconUserPriority 7
+config *.rsu[*].appl.dataUserPriority 5
+config *.rsu[*].nic.phy80211p.antennaOffsetZ "0 m"
+config *.connectionManager.sendDirect true
+config *.connectionManager.maxInterfDist 2600m
+config *.connectionManager.drawMaxIntfDist false
+config *.**.nic.mac1609_4.useServiceChannel false
+config *.**.nic.mac1609_4.txPower 20mW
+config *.**.nic.mac1609_4.bitrate 6Mbps
+config *.**.nic.phy80211p.minPowerLevel -110dBm
+config *.**.nic.phy80211p.useNoiseFloor true
+config *.**.nic.phy80211p.noiseFloor -98dBm
+config *.**.nic.phy80211p.decider "xmldoc(\"config.xml\")"
+config *.**.nic.phy80211p.analogueModels "xmldoc(\"config.xml\")"
+config *.**.nic.phy80211p.usePropagationDelay true
+config *.**.nic.phy80211p.antenna "xmldoc(\"antenna.xml\", \"/root/Antenna[@id='monopole']\")"
+config *.node[*].nic.phy80211p.antennaOffsetY "0 m"
+config *.node[*].nic.phy80211p.antennaOffsetZ "1.895 m"
+config *.node[*].applType "\"MyVeinsApp\""
+config *.node[*].appl.headerLength "80 bit"
+config *.node[*].appl.sendBeacons false
+config *.node[*].appl.dataOnSch false
+config *.node[*].appl.beaconInterval 1s
+
+par helloNetwork.obstacles typename "\"org.car2x.veins.modules.obstacle.ObstacleControl\""
+par helloNetwork.obstacles obstacles "<obstacles/> at content:1"
+par helloNetwork.obstacles gridCellSize 250
+par helloNetwork.annotations typename "\"org.car2x.veins.modules.world.annotations.AnnotationManager\""
+par helloNetwork.annotations draw true
+par helloNetwork.annotations annotations "<annotations/> at content:1"
+par helloNetwork.connectionManager typename "\"org.car2x.veins.base.connectionManager.ConnectionManager\""
+par helloNetwork.connectionManager sendDirect true
+par helloNetwork.connectionManager maxInterfDist 2600m
+attr unit m
+par helloNetwork.connectionManager drawMaxIntfDist false
+par helloNetwork.world typename "\"org.car2x.veins.base.modules.BaseWorldUtility\""
+par helloNetwork.world playgroundSizeX 2500m
+attr unit m
+par helloNetwork.world playgroundSizeY 2500m
+attr unit m
+par helloNetwork.world playgroundSizeZ 50m
+attr unit m
+par helloNetwork.world useTorus false
+par helloNetwork.world use2D false
+par helloNetwork.manager typename "\"org.car2x.veins.modules.mobility.traci.TraCIScenarioManagerLaunchd\""
+par helloNetwork.manager connectAt 0s
+attr unit s
+par helloNetwork.manager firstStepAt -1s
+attr unit s
+par helloNetwork.manager updateInterval 1s
+attr unit s
+par helloNetwork.manager moduleType "\"org.car2x.veins.nodes.Car\""
+par helloNetwork.manager moduleName "\"node\""
+par helloNetwork.manager moduleDisplayString "\"*='i=veins/node/car;is=vs'\""
+par helloNetwork.manager trafficLightModuleType "\"\""
+par helloNetwork.manager trafficLightModuleName "\"tls\""
+par helloNetwork.manager trafficLightFilter "\"\""
+par helloNetwork.manager trafficLightModuleDisplayString "\"i=veins/node/trafficlight;is=vs\""
+par helloNetwork.manager host "\"localhost\""
+par helloNetwork.manager port 9999
+par helloNetwork.manager seed -1
+par helloNetwork.manager autoShutdown true
+par helloNetwork.manager margin 25
+par helloNetwork.manager roiRoads "\"\""
+par helloNetwork.manager roiRects "\"\""
+par helloNetwork.manager penetrationRate 1
+par helloNetwork.manager ignoreGuiCommands false
+par helloNetwork.manager order -1
+par helloNetwork.manager ignoreUnknownSubscriptionResults false
+par helloNetwork.manager launchConfig "<launch>...</launch> at /home/kumoulica/sim/omnetpp-6.3.0-linux-x86_64/omnetpp-6.3.0/samples/finalscencenoise//helloworld.launchd.xml:3"
+scalar helloNetwork.manager roiArea 0
+par helloNetwork.roadsCanvasVisualizer typename "\"org.car2x.veins.visualizer.roads.RoadsCanvasVisualizer\""
+par helloNetwork.roadsCanvasVisualizer enabled true
+par helloNetwork.roadsCanvasVisualizer lineZIndex -1
+par helloNetwork.roadsCanvasVisualizer lineColor "\"firebrick4\""
+par helloNetwork.roadsCanvasVisualizer lineWidth 1
+par helloNetwork.roadsCanvasVisualizer lineWidthZoom false
+par helloNetwork.node[0].appl typename "\"org.car2x.veins.modules.application.traci.MyVeinsApp\""
+par helloNetwork.node[0].appl headerLength 80bit
+attr unit bit
+par helloNetwork.node[0].appl sendBeacons true
+par helloNetwork.node[0].appl beaconLengthBits 256bit
+attr unit bit
+par helloNetwork.node[0].appl beaconUserPriority 7
+par helloNetwork.node[0].appl beaconInterval 1s
+attr unit s
+par helloNetwork.node[0].appl dataLengthBits 1024bit
+attr unit bit
+par helloNetwork.node[0].appl dataOnSch false
+par helloNetwork.node[0].appl dataUserPriority 7
+par helloNetwork.node[0].appl avoidBeaconSynchronization true
+par helloNetwork.node[0].appl sendWSA false
+par helloNetwork.node[0].appl wsaLengthBits 250bit
+attr unit bit
+par helloNetwork.node[0].appl wsaInterval 1s
+attr unit s
+par helloNetwork.node[0].appl appName "\"My first Veins App!\""
+scalar helloNetwork.node[0].appl generatedWSMs 0
+scalar helloNetwork.node[0].appl receivedWSMs 0
+scalar helloNetwork.node[0].appl generatedBSMs 3
+scalar helloNetwork.node[0].appl receivedBSMs 0
+scalar helloNetwork.node[0].appl generatedWSAs 0
+scalar helloNetwork.node[0].appl receivedWSAs 0
+par helloNetwork.node[0].nic.phy80211p typename "\"org.car2x.veins.modules.phy.PhyLayer80211p\""
+par helloNetwork.node[0].nic.phy80211p recordStats false
+par helloNetwork.node[0].nic.phy80211p usePropagationDelay true
+par helloNetwork.node[0].nic.phy80211p noiseFloor -98dBm
+attr unit dBm
+par helloNetwork.node[0].nic.phy80211p useNoiseFloor true
+par helloNetwork.node[0].nic.phy80211p antenna "<Antenna type=\"SampledAntenna1D\" id=\"monopole\">...</Antenna> at /home/kumoulica/sim/omnetpp-6.3.0-linux-x86_64/omnetpp-6.3.0/samples/finalscencenoise//antenna.xml:35"
+par helloNetwork.node[0].nic.phy80211p antennaOffsetX 0m
+attr unit m
+par helloNetwork.node[0].nic.phy80211p antennaOffsetY 0m
+attr unit m
+par helloNetwork.node[0].nic.phy80211p antennaOffsetZ 1.895m
+attr unit m
+par helloNetwork.node[0].nic.phy80211p antennaOffsetYaw 0rad
+attr unit rad
+par helloNetwork.node[0].nic.phy80211p analogueModels "<root>...</root> at /home/kumoulica/sim/omnetpp-6.3.0-linux-x86_64/omnetpp-6.3.0/samples/finalscencenoise//config.xml:34"
+par helloNetwork.node[0].nic.phy80211p decider "<root>...</root> at /home/kumoulica/sim/omnetpp-6.3.0-linux-x86_64/omnetpp-6.3.0/samples/finalscencenoise//config.xml:34"
+par helloNetwork.node[0].nic.phy80211p minPowerLevel -110dBm
+attr unit dBm
+par helloNetwork.node[0].nic.phy80211p timeRXToTX 0s
+attr unit s
+par helloNetwork.node[0].nic.phy80211p timeRXToSleep 0s
+attr unit s
+par helloNetwork.node[0].nic.phy80211p timeTXToRX 0s
+attr unit s
+par helloNetwork.node[0].nic.phy80211p timeTXToSleep 0s
+attr unit s
+par helloNetwork.node[0].nic.phy80211p timeSleepToRX 0s
+attr unit s
+par helloNetwork.node[0].nic.phy80211p timeSleepToTX 0s
+attr unit s
+par helloNetwork.node[0].nic.phy80211p initialRadioState 0
+par helloNetwork.node[0].nic.phy80211p radioMinAtt 1
+par helloNetwork.node[0].nic.phy80211p radioMaxAtt 0
+par helloNetwork.node[0].nic.phy80211p nbRadioChannels 1
+par helloNetwork.node[0].nic.phy80211p initialRadioChannel 0
+par helloNetwork.node[0].nic.phy80211p ccaThreshold -65dBm
+attr unit dBm
+par helloNetwork.node[0].nic.phy80211p collectCollisionStatistics false
+par helloNetwork.node[0].nic.phy80211p allowTxDuringRx false
+scalar helloNetwork.node[0].nic.phy80211p busyTime 0.0010114312962562
+par helloNetwork.node[0].nic.mac1609_4 typename "\"org.car2x.veins.modules.mac.ieee80211p.Mac1609_4\""
+par helloNetwork.node[0].nic.mac1609_4 notAffectedByHostState false
+par helloNetwork.node[0].nic.mac1609_4 headerLength 0bit
+attr unit bit
+par helloNetwork.node[0].nic.mac1609_4 address "\"auto\""
+par helloNetwork.node[0].nic.mac1609_4 useServiceChannel false
+par helloNetwork.node[0].nic.mac1609_4 serviceChannel 1
+par helloNetwork.node[0].nic.mac1609_4 bitrate 6000000bps
+attr unit bps
+par helloNetwork.node[0].nic.mac1609_4 syncOffset 0.0003s
+attr unit s
+par helloNetwork.node[0].nic.mac1609_4 txPower 20mW
+attr unit mW
+par helloNetwork.node[0].nic.mac1609_4 queueSize 0
+par helloNetwork.node[0].nic.mac1609_4 dot11RTSThreshold 12000bit
+attr unit bit
+par helloNetwork.node[0].nic.mac1609_4 dot11ShortRetryLimit 7
+par helloNetwork.node[0].nic.mac1609_4 dot11LongRetryLimit 4
+par helloNetwork.node[0].nic.mac1609_4 ackLength 112bit
+attr unit bit
+par helloNetwork.node[0].nic.mac1609_4 useAcks false
+par helloNetwork.node[0].nic.mac1609_4 frameErrorRate 0
+par helloNetwork.node[0].nic.mac1609_4 ackErrorRate 0
+scalar helloNetwork.node[0].nic.mac1609_4 ReceivedUnicastPackets 0
+scalar helloNetwork.node[0].nic.mac1609_4 ReceivedBroadcasts 0
+scalar helloNetwork.node[0].nic.mac1609_4 SentPackets 3
+scalar helloNetwork.node[0].nic.mac1609_4 SentAcknowledgements 0
+scalar helloNetwork.node[0].nic.mac1609_4 RetriesExceeded 0
+scalar helloNetwork.node[0].nic.mac1609_4 SNIRLostPackets 30
+scalar helloNetwork.node[0].nic.mac1609_4 RXTXLostPackets 0
+scalar helloNetwork.node[0].nic.mac1609_4 TotalLostPackets 30
+scalar helloNetwork.node[0].nic.mac1609_4 DroppedPacketsInMac 0
+scalar helloNetwork.node[0].nic.mac1609_4 TooLittleTime 0
+scalar helloNetwork.node[0].nic.mac1609_4 TimesIntoBackoff 3
+scalar helloNetwork.node[0].nic.mac1609_4 SlotsBackoff 2
+scalar helloNetwork.node[0].nic.mac1609_4 NumInternalContention 0
+scalar helloNetwork.node[0].nic.mac1609_4 totalBusyTime 0.003435
+scalar helloNetwork.node[0].nic.mac1609_4 retriesExceeded:count 0
+attr recordingmode count
+attr source org_car2x_veins_modules_mac_sigRetriesExceeded
+scalar helloNetwork.node[0].nic.mac1609_4 sentAcks:count 0
+attr recordingmode count
+attr source org_car2x_veins_modules_mac_sigSentAck
+scalar helloNetwork.node[0].nic.mac1609_4 sentPackets:count 3
+attr recordingmode count
+attr source org_car2x_veins_modules_mac_sigSentPacket
+scalar helloNetwork.node[0].nic.mac1609_4 collisions:count 0
+attr recordingmode count
+attr source org_car2x_veins_modules_mac_sigCollision
+scalar helloNetwork.node[0].nic.mac1609_4 channelBusy:timeavg 0.0011135469559744
+attr recordingmode timeavg
+attr source org_car2x_veins_modules_mac_sigChannelBusy
+par helloNetwork.node[0].nic typename "\"org.car2x.veins.modules.nic.Nic80211p\""
+par helloNetwork.node[0].nic connectionManagerName "\"connectionManager\""
+par helloNetwork.node[0].veinsmobility typename "\"org.car2x.veins.modules.mobility.traci.TraCIMobility\""
+par helloNetwork.node[0].veinsmobility notAffectedByHostState true
+par helloNetwork.node[0].veinsmobility x 0
+par helloNetwork.node[0].veinsmobility y 0
+par helloNetwork.node[0].veinsmobility z 0
+par helloNetwork.node[0].veinsmobility xOrientation 1
+par helloNetwork.node[0].veinsmobility yOrientation 0
+par helloNetwork.node[0].veinsmobility zOrientation 0
+par helloNetwork.node[0].veinsmobility hostPositionOffset 0m
+attr unit m
+par helloNetwork.node[0].veinsmobility setHostSpeed false
+par helloNetwork.node[0].veinsmobility accidentCount 0
+par helloNetwork.node[0].veinsmobility accidentStart 73s
+attr unit s
+par helloNetwork.node[0].veinsmobility accidentDuration 50s
+attr unit s
+par helloNetwork.node[0].veinsmobility accidentInterval "uniform(30s, 60s)"
+attr unit s
+scalar helloNetwork.node[0].veinsmobility startTime 1
+scalar helloNetwork.node[0].veinsmobility totalTime 3
+scalar helloNetwork.node[0].veinsmobility stopTime 4.08473745231
+scalar helloNetwork.node[0].veinsmobility minSpeed 0.8
+scalar helloNetwork.node[0].veinsmobility maxSpeed 2.4
+scalar helloNetwork.node[0].veinsmobility totalDistance 4.8
+scalar helloNetwork.node[0].veinsmobility totalCO2Emission 3.1858154295296
+par helloNetwork.node[0] typename "\"org.car2x.veins.nodes.Car\""
+par helloNetwork.node[0] applType "\"MyVeinsApp\""
+par helloNetwork.node[0] nicType "\"Nic80211p\""
+par helloNetwork.node[0] veinsmobilityType "\"org.car2x.veins.modules.mobility.traci.TraCIMobility\""
+par helloNetwork.rsu[0].appl typename "\"org.car2x.veins.modules.application.traci.TraCIDemoRSU11p\""
+par helloNetwork.rsu[0].appl headerLength 80bit
+attr unit bit
+par helloNetwork.rsu[0].appl sendBeacons true
+par helloNetwork.rsu[0].appl beaconLengthBits 256bit
+attr unit bit
+par helloNetwork.rsu[0].appl beaconUserPriority 7
+par helloNetwork.rsu[0].appl beaconInterval 1s
+attr unit s
+par helloNetwork.rsu[0].appl dataLengthBits 1024bit
+attr unit bit
+par helloNetwork.rsu[0].appl dataOnSch false
+par helloNetwork.rsu[0].appl dataUserPriority 5
+par helloNetwork.rsu[0].appl avoidBeaconSynchronization true
+par helloNetwork.rsu[0].appl sendWSA false
+par helloNetwork.rsu[0].appl wsaLengthBits 250bit
+attr unit bit
+par helloNetwork.rsu[0].appl wsaInterval 1s
+attr unit s
+scalar helloNetwork.rsu[0].appl generatedWSMs 0
+scalar helloNetwork.rsu[0].appl receivedWSMs 0
+scalar helloNetwork.rsu[0].appl generatedBSMs 4
+scalar helloNetwork.rsu[0].appl receivedBSMs 40
+scalar helloNetwork.rsu[0].appl generatedWSAs 0
+scalar helloNetwork.rsu[0].appl receivedWSAs 0
+par helloNetwork.rsu[0].nic.phy80211p typename "\"org.car2x.veins.modules.phy.PhyLayer80211p\""
+par helloNetwork.rsu[0].nic.phy80211p recordStats false
+par helloNetwork.rsu[0].nic.phy80211p usePropagationDelay true
+par helloNetwork.rsu[0].nic.phy80211p noiseFloor -98dBm
+attr unit dBm
+par helloNetwork.rsu[0].nic.phy80211p useNoiseFloor true
+par helloNetwork.rsu[0].nic.phy80211p antenna "<Antenna type=\"SampledAntenna1D\" id=\"monopole\">...</Antenna> at /home/kumoulica/sim/omnetpp-6.3.0-linux-x86_64/omnetpp-6.3.0/samples/finalscencenoise//antenna.xml:35"
+par helloNetwork.rsu[0].nic.phy80211p antennaOffsetX 0m
+attr unit m
+par helloNetwork.rsu[0].nic.phy80211p antennaOffsetY 0m
+attr unit m
+par helloNetwork.rsu[0].nic.phy80211p antennaOffsetZ 0m
+attr unit m
+par helloNetwork.rsu[0].nic.phy80211p antennaOffsetYaw 0rad
+attr unit rad
+par helloNetwork.rsu[0].nic.phy80211p analogueModels "<root>...</root> at /home/kumoulica/sim/omnetpp-6.3.0-linux-x86_64/omnetpp-6.3.0/samples/finalscencenoise//config.xml:34"
+par helloNetwork.rsu[0].nic.phy80211p decider "<root>...</root> at /home/kumoulica/sim/omnetpp-6.3.0-linux-x86_64/omnetpp-6.3.0/samples/finalscencenoise//config.xml:34"
+par helloNetwork.rsu[0].nic.phy80211p minPowerLevel -110dBm
+attr unit dBm
+par helloNetwork.rsu[0].nic.phy80211p timeRXToTX 0s
+attr unit s
+par helloNetwork.rsu[0].nic.phy80211p timeRXToSleep 0s
+attr unit s
+par helloNetwork.rsu[0].nic.phy80211p timeTXToRX 0s
+attr unit s
+par helloNetwork.rsu[0].nic.phy80211p timeTXToSleep 0s
+attr unit s
+par helloNetwork.rsu[0].nic.phy80211p timeSleepToRX 0s
+attr unit s
+par helloNetwork.rsu[0].nic.phy80211p timeSleepToTX 0s
+attr unit s
+par helloNetwork.rsu[0].nic.phy80211p initialRadioState 0
+par helloNetwork.rsu[0].nic.phy80211p radioMinAtt 1
+par helloNetwork.rsu[0].nic.phy80211p radioMaxAtt 0
+par helloNetwork.rsu[0].nic.phy80211p nbRadioChannels 1
+par helloNetwork.rsu[0].nic.phy80211p initialRadioChannel 0
+par helloNetwork.rsu[0].nic.phy80211p ccaThreshold -65dBm
+attr unit dBm
+par helloNetwork.rsu[0].nic.phy80211p collectCollisionStatistics false
+par helloNetwork.rsu[0].nic.phy80211p allowTxDuringRx false
+scalar helloNetwork.rsu[0].nic.phy80211p busyTime 0.0010184253084975
+par helloNetwork.rsu[0].nic.mac1609_4 typename "\"org.car2x.veins.modules.mac.ieee80211p.Mac1609_4\""
+par helloNetwork.rsu[0].nic.mac1609_4 notAffectedByHostState false
+par helloNetwork.rsu[0].nic.mac1609_4 headerLength 0bit
+attr unit bit
+par helloNetwork.rsu[0].nic.mac1609_4 address "\"auto\""
+par helloNetwork.rsu[0].nic.mac1609_4 useServiceChannel false
+par helloNetwork.rsu[0].nic.mac1609_4 serviceChannel 1
+par helloNetwork.rsu[0].nic.mac1609_4 bitrate 6000000bps
+attr unit bps
+par helloNetwork.rsu[0].nic.mac1609_4 syncOffset 0.0003s
+attr unit s
+par helloNetwork.rsu[0].nic.mac1609_4 txPower 20mW
+attr unit mW
+par helloNetwork.rsu[0].nic.mac1609_4 queueSize 0
+par helloNetwork.rsu[0].nic.mac1609_4 dot11RTSThreshold 12000bit
+attr unit bit
+par helloNetwork.rsu[0].nic.mac1609_4 dot11ShortRetryLimit 7
+par helloNetwork.rsu[0].nic.mac1609_4 dot11LongRetryLimit 4
+par helloNetwork.rsu[0].nic.mac1609_4 ackLength 112bit
+attr unit bit
+par helloNetwork.rsu[0].nic.mac1609_4 useAcks false
+par helloNetwork.rsu[0].nic.mac1609_4 frameErrorRate 0
+par helloNetwork.rsu[0].nic.mac1609_4 ackErrorRate 0
+scalar helloNetwork.rsu[0].nic.mac1609_4 ReceivedUnicastPackets 0
+scalar helloNetwork.rsu[0].nic.mac1609_4 ReceivedBroadcasts 40
+scalar helloNetwork.rsu[0].nic.mac1609_4 SentPackets 4
+scalar helloNetwork.rsu[0].nic.mac1609_4 SentAcknowledgements 0
+scalar helloNetwork.rsu[0].nic.mac1609_4 RetriesExceeded 0
+scalar helloNetwork.rsu[0].nic.mac1609_4 SNIRLostPackets 0
+scalar helloNetwork.rsu[0].nic.mac1609_4 RXTXLostPackets 0
+scalar helloNetwork.rsu[0].nic.mac1609_4 TotalLostPackets 0
+scalar helloNetwork.rsu[0].nic.mac1609_4 DroppedPacketsInMac 0
+scalar helloNetwork.rsu[0].nic.mac1609_4 TooLittleTime 0
+scalar helloNetwork.rsu[0].nic.mac1609_4 TimesIntoBackoff 4
+scalar helloNetwork.rsu[0].nic.mac1609_4 SlotsBackoff 4
+scalar helloNetwork.rsu[0].nic.mac1609_4 NumInternalContention 0
+scalar helloNetwork.rsu[0].nic.mac1609_4 totalBusyTime 0.00458
+scalar helloNetwork.rsu[0].nic.mac1609_4 retriesExceeded:count 0
+attr recordingmode count
+attr source org_car2x_veins_modules_mac_sigRetriesExceeded
+scalar helloNetwork.rsu[0].nic.mac1609_4 sentAcks:count 0
+attr recordingmode count
+attr source org_car2x_veins_modules_mac_sigSentAck
+scalar helloNetwork.rsu[0].nic.mac1609_4 sentPackets:count 4
+attr recordingmode count
+attr source org_car2x_veins_modules_mac_sigSentPacket
+scalar helloNetwork.rsu[0].nic.mac1609_4 collisions:count 0
+attr recordingmode count
+attr source org_car2x_veins_modules_mac_sigCollision
+scalar helloNetwork.rsu[0].nic.mac1609_4 channelBusy:timeavg 0.0011212470944515
+attr recordingmode timeavg
+attr source org_car2x_veins_modules_mac_sigChannelBusy
+par helloNetwork.rsu[0].nic typename "\"org.car2x.veins.modules.nic.Nic80211p\""
+par helloNetwork.rsu[0].nic connectionManagerName "\"connectionManager\""
+par helloNetwork.rsu[0].mobility typename "\"org.car2x.veins.base.modules.BaseMobility\""
+par helloNetwork.rsu[0].mobility notAffectedByHostState true
+par helloNetwork.rsu[0].mobility x 2000
+par helloNetwork.rsu[0].mobility y 2000
+par helloNetwork.rsu[0].mobility z 3
+par helloNetwork.rsu[0].mobility xOrientation 1
+par helloNetwork.rsu[0].mobility yOrientation 0
+par helloNetwork.rsu[0].mobility zOrientation 0
+par helloNetwork.rsu[0] typename "\"org.car2x.veins.nodes.RSU\""
+par helloNetwork.rsu[0] applType "\"TraCIDemoRSU11p\""
+par helloNetwork.rsu[0] nicType "\"Nic80211p\""
+par helloNetwork.jammer[0].appl typename "\"org.car2x.veins.modules.application.traci.TraCIDemoRSU11p\""
+par helloNetwork.jammer[0].appl headerLength 80bit
+attr unit bit
+par helloNetwork.jammer[0].appl sendBeacons true
+par helloNetwork.jammer[0].appl beaconLengthBits 256bit
+attr unit bit
+par helloNetwork.jammer[0].appl beaconUserPriority 7
+par helloNetwork.jammer[0].appl beaconInterval 0.1s
+attr unit s
+par helloNetwork.jammer[0].appl dataLengthBits 1024bit
+attr unit bit
+par helloNetwork.jammer[0].appl dataOnSch false
+par helloNetwork.jammer[0].appl dataUserPriority 5
+par helloNetwork.jammer[0].appl avoidBeaconSynchronization true
+par helloNetwork.jammer[0].appl sendWSA false
+par helloNetwork.jammer[0].appl wsaLengthBits 250bit
+attr unit bit
+par helloNetwork.jammer[0].appl wsaInterval 1s
+attr unit s
+scalar helloNetwork.jammer[0].appl generatedWSMs 0
+scalar helloNetwork.jammer[0].appl receivedWSMs 0
+scalar helloNetwork.jammer[0].appl generatedBSMs 41
+scalar helloNetwork.jammer[0].appl receivedBSMs 0
+scalar helloNetwork.jammer[0].appl generatedWSAs 0
+scalar helloNetwork.jammer[0].appl receivedWSAs 0
+par helloNetwork.jammer[0].nic.phy80211p typename "\"org.car2x.veins.modules.phy.PhyLayer80211p\""
+par helloNetwork.jammer[0].nic.phy80211p recordStats false
+par helloNetwork.jammer[0].nic.phy80211p usePropagationDelay true
+par helloNetwork.jammer[0].nic.phy80211p noiseFloor -98dBm
+attr unit dBm
+par helloNetwork.jammer[0].nic.phy80211p useNoiseFloor true
+par helloNetwork.jammer[0].nic.phy80211p antenna "<Antenna type=\"SampledAntenna1D\" id=\"monopole\">...</Antenna> at /home/kumoulica/sim/omnetpp-6.3.0-linux-x86_64/omnetpp-6.3.0/samples/finalscencenoise//antenna.xml:35"
+par helloNetwork.jammer[0].nic.phy80211p antennaOffsetX 0m
+attr unit m
+par helloNetwork.jammer[0].nic.phy80211p antennaOffsetY 0m
+attr unit m
+par helloNetwork.jammer[0].nic.phy80211p antennaOffsetZ 0m
+attr unit m
+par helloNetwork.jammer[0].nic.phy80211p antennaOffsetYaw 0rad
+attr unit rad
+par helloNetwork.jammer[0].nic.phy80211p analogueModels "<root>...</root> at /home/kumoulica/sim/omnetpp-6.3.0-linux-x86_64/omnetpp-6.3.0/samples/finalscencenoise//config.xml:34"
+par helloNetwork.jammer[0].nic.phy80211p decider "<root>...</root> at /home/kumoulica/sim/omnetpp-6.3.0-linux-x86_64/omnetpp-6.3.0/samples/finalscencenoise//config.xml:34"
+par helloNetwork.jammer[0].nic.phy80211p minPowerLevel -110dBm
+attr unit dBm
+par helloNetwork.jammer[0].nic.phy80211p timeRXToTX 0s
+attr unit s
+par helloNetwork.jammer[0].nic.phy80211p timeRXToSleep 0s
+attr unit s
+par helloNetwork.jammer[0].nic.phy80211p timeTXToRX 0s
+attr unit s
+par helloNetwork.jammer[0].nic.phy80211p timeTXToSleep 0s
+attr unit s
+par helloNetwork.jammer[0].nic.phy80211p timeSleepToRX 0s
+attr unit s
+par helloNetwork.jammer[0].nic.phy80211p timeSleepToTX 0s
+attr unit s
+par helloNetwork.jammer[0].nic.phy80211p initialRadioState 0
+par helloNetwork.jammer[0].nic.phy80211p radioMinAtt 1
+par helloNetwork.jammer[0].nic.phy80211p radioMaxAtt 0
+par helloNetwork.jammer[0].nic.phy80211p nbRadioChannels 1
+par helloNetwork.jammer[0].nic.phy80211p initialRadioChannel 0
+par helloNetwork.jammer[0].nic.phy80211p ccaThreshold -65dBm
+attr unit dBm
+par helloNetwork.jammer[0].nic.phy80211p collectCollisionStatistics false
+par helloNetwork.jammer[0].nic.phy80211p allowTxDuringRx false
+scalar helloNetwork.jammer[0].nic.phy80211p busyTime 0.00017822442898706
+par helloNetwork.jammer[0].nic.mac1609_4 typename "\"org.car2x.veins.modules.mac.ieee80211p.Mac1609_4\""
+par helloNetwork.jammer[0].nic.mac1609_4 notAffectedByHostState false
+par helloNetwork.jammer[0].nic.mac1609_4 headerLength 0bit
+attr unit bit
+par helloNetwork.jammer[0].nic.mac1609_4 address "\"auto\""
+par helloNetwork.jammer[0].nic.mac1609_4 useServiceChannel false
+par helloNetwork.jammer[0].nic.mac1609_4 serviceChannel 1
+par helloNetwork.jammer[0].nic.mac1609_4 bitrate 6000000bps
+attr unit bps
+par helloNetwork.jammer[0].nic.mac1609_4 syncOffset 0.0003s
+attr unit s
+par helloNetwork.jammer[0].nic.mac1609_4 txPower 200mW
+attr unit mW
+par helloNetwork.jammer[0].nic.mac1609_4 queueSize 0
+par helloNetwork.jammer[0].nic.mac1609_4 dot11RTSThreshold 12000bit
+attr unit bit
+par helloNetwork.jammer[0].nic.mac1609_4 dot11ShortRetryLimit 7
+par helloNetwork.jammer[0].nic.mac1609_4 dot11LongRetryLimit 4
+par helloNetwork.jammer[0].nic.mac1609_4 ackLength 112bit
+attr unit bit
+par helloNetwork.jammer[0].nic.mac1609_4 useAcks false
+par helloNetwork.jammer[0].nic.mac1609_4 frameErrorRate 0
+par helloNetwork.jammer[0].nic.mac1609_4 ackErrorRate 0
+scalar helloNetwork.jammer[0].nic.mac1609_4 ReceivedUnicastPackets 0
+scalar helloNetwork.jammer[0].nic.mac1609_4 ReceivedBroadcasts 0
+scalar helloNetwork.jammer[0].nic.mac1609_4 SentPackets 41
+scalar helloNetwork.jammer[0].nic.mac1609_4 SentAcknowledgements 0
+scalar helloNetwork.jammer[0].nic.mac1609_4 RetriesExceeded 0
+scalar helloNetwork.jammer[0].nic.mac1609_4 SNIRLostPackets 7
+scalar helloNetwork.jammer[0].nic.mac1609_4 RXTXLostPackets 0
+scalar helloNetwork.jammer[0].nic.mac1609_4 TotalLostPackets 7
+scalar helloNetwork.jammer[0].nic.mac1609_4 DroppedPacketsInMac 0
+scalar helloNetwork.jammer[0].nic.mac1609_4 TooLittleTime 0
+scalar helloNetwork.jammer[0].nic.mac1609_4 TimesIntoBackoff 40
+scalar helloNetwork.jammer[0].nic.mac1609_4 SlotsBackoff 47
+scalar helloNetwork.jammer[0].nic.mac1609_4 NumInternalContention 0
+scalar helloNetwork.jammer[0].nic.mac1609_4 totalBusyTime 0.004928
+scalar helloNetwork.jammer[0].nic.mac1609_4 retriesExceeded:count 0
+attr recordingmode count
+attr source org_car2x_veins_modules_mac_sigRetriesExceeded
+scalar helloNetwork.jammer[0].nic.mac1609_4 sentAcks:count 0
+attr recordingmode count
+attr source org_car2x_veins_modules_mac_sigSentAck
+scalar helloNetwork.jammer[0].nic.mac1609_4 sentPackets:count 41
+attr recordingmode count
+attr source org_car2x_veins_modules_mac_sigSentPacket
+scalar helloNetwork.jammer[0].nic.mac1609_4 collisions:count 0
+attr recordingmode count
+attr source org_car2x_veins_modules_mac_sigCollision
+scalar helloNetwork.jammer[0].nic.mac1609_4 channelBusy:timeavg 0.0012072594793605
+attr recordingmode timeavg
+attr source org_car2x_veins_modules_mac_sigChannelBusy
+par helloNetwork.jammer[0].nic typename "\"org.car2x.veins.modules.nic.Nic80211p\""
+par helloNetwork.jammer[0].nic connectionManagerName "\"connectionManager\""
+par helloNetwork.jammer[0].mobility typename "\"org.car2x.veins.base.modules.BaseMobility\""
+par helloNetwork.jammer[0].mobility notAffectedByHostState true
+par helloNetwork.jammer[0].mobility x 1500
+par helloNetwork.jammer[0].mobility y 1500
+par helloNetwork.jammer[0].mobility z 3
+par helloNetwork.jammer[0].mobility xOrientation 1
+par helloNetwork.jammer[0].mobility yOrientation 0
+par helloNetwork.jammer[0].mobility zOrientation 0
+par helloNetwork.jammer[0] typename "\"org.car2x.veins.nodes.RSU\""
+par helloNetwork.jammer[0] applType "\"TraCIDemoRSU11p\""
+par helloNetwork.jammer[0] nicType "\"Nic80211p\""
+par helloNetwork typename "\"helloNetwork\""
+par helloNetwork playgroundSizeX 2500m
+attr unit m
+par helloNetwork playgroundSizeY 2500m
+attr unit m
+par helloNetwork playgroundSizeZ 50m
+attr unit m
+
