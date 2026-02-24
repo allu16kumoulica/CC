@@ -1,0 +1,3 @@
+ModuleSentReceivedSNIR LostMeaningjammer[0]4107Floods channel aggressivelynode[0]3030Vehicle comms destroyedrsu[0]4400RSU only hears jammer, not vehicles
+The RSU received 40 broadcasts — almost entirely from the jammer, not from vehicles. Legitimate V2X communication was effectively silenced.
+
